@@ -1,0 +1,18 @@
+{% extends 'layout/base.html' %}
+{% block 'styles' %}
+  {% load static %}
+  <link rel="stylesheet" href= {% static 'css/gallery.css' %} >
+{% endblock  %}
+{% block 'content' %}
+<div class="container">
+  <h1 class="text-2xl mb-4">Image Gallery</h1>
+  <div class="image-grid">
+      {% for image in images %}
+      <div class="image-card">
+          <img src="{{ image.image_file.url }}" alt="{{ image.name }}">
+          <p>{{ image.name }}</p>
+      </div>
+      {% endfor %}
+  </div>
+</div>
+{% endblock  %}

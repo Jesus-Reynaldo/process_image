@@ -1,0 +1,16 @@
+{% load static %}
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% tailwind_css %}
+    <title>Procesamiento de Imágenes</title>
+    {% block 'styles'%}{% endblock%}
+</head>
+<body>
+  <main class="m-4">
+    {% block 'content' %}
+    {% endblock %}
+  </main>
+</body>
+</html>

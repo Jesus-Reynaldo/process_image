@@ -32,3 +32,9 @@ def process_image(request):
             return render(request, 'error.html', context)
 
     return render(request, 'process.html')
+
+def gallery(request):
+    images = Image.objects.all()
+    context = {'images': images}
+    return render(request, 'gallery.html', context)
+    

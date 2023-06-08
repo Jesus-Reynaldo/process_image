@@ -1,15 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Procesamiento de Imágenes</title>
-</head>
-<body>
-    <h1>Procesamiento de Imágenes</h1>
-    <form method="post" enctype="multipart/form-data" action="{% url 'process_image' %}">
-        {% csrf_token %}
-        <input type="file" name="image" accept="image/*" required>
-        <br><br>
-        <input type="submit" value="Procesar Imagen">
-    </form>
-</body>
-</html>
+{% extends 'layout/base.html' %}
+{% block 'styles' %}
+    {%load static%}
+    <link rel="stylesheet" href= {% static 'css/process.css' %} >
+{% endblock %}
+{% block 'content' %}
+    <div class="container">
+        <h1 class="text-2xl mb-4 ">Procesamiento de Imágenes</h1>
+        <form method="post" enctype="multipart/form-data" action="{% url 'process_image' %}">
+            {% csrf_token %}
+            <div class="input-wrapper">
+                <label for="image" class="input-label">Select an image:</label>
+                <input type="file" name="image" accept="image/*" required class="input-field">
+                <br><br>
+            </div>
+            <input type="submit" value="Procesar Imagen" class="btn">
+        </form>
+    </div>
+{% endblock %}
+

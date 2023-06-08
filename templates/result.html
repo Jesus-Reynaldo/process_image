@@ -1,11 +1,18 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Resultado de Procesamiento</title>
-</head>
-<body>
-    <h1>Resultado de Procesamiento</h1>
-    <img src="{{ processed_image.image_file.url }}" alt="Imagen Procesada">
-</body>
-</html>
+{% extends 'layout/base.html' %}
+
+{% block 'styles' %}
+    {% load static %}
+    <link rel="stylesheet" href= {% static 'css/result.css' %} >
+{% endblock  %}
+
+{% block 'content' %}
+    <div class="container">
+        <h1 class="text-2xl mb-4">Image Processing Result</h1>
+        <img src="{{ processed_image.image_file.url }}" alt="Processed Image" class="result-image">
+        <p class="text-lg">Image Name: {{ processed_image.name }}</p>
+    </div>
+{% endblock  %}
+
+
+
+
